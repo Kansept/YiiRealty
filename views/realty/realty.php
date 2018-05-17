@@ -38,8 +38,11 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
         <?php } ?>
-        <br/>
-        
+    </div>
+</div>
+
+<hr/>
+<div class="row">
     <div class="col-md-4 info-block">
         <p class="price">Цена: <span class="sum"> <?= Yii::$app->formatter->asInteger($model->price) ?> </span> Руб.</p>
     </div>
@@ -49,11 +52,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="col-md-4 info-block">
         <p class="type"><?= isset($model->room)? 'Количество комнат: ' . $model->room : '' ?></p>
     </div>
-    
-		
-        
-    </div>
 </div>
+
 <hr/>
 
 <div class="row">
