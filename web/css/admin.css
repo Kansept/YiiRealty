@@ -1,0 +1,8 @@
+img.realty_thumbnail {
+    border: 1px solid #b9b9b9;
+    padding: 2px;
+}
+
+img.realty_thumbnail.cover {
+    border: 1px solid #a94442;
+}

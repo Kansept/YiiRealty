@@ -1,0 +1,12 @@
+{
+  "name": "platinum",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "kansept",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.5.0",
+    "jcarousel": "^0.3.7"
+  }
+}
