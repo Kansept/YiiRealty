@@ -1,10 +1,18 @@
 @footer-height: 60px;
-@menu-color: #ffc112;
+@menu-color: #8bc34a;
+
+html {
+    min-height: 100%;
+    position: relative;
+}
 
 html,
 body {
-    height: 100%;
-    background-color: #e4e4e4;
+    background-color: #f5f5f5;
+}
+
+body {
+    margin-bottom: @footer-height + 5px;
 }
 
 .title {
@@ -20,9 +28,6 @@ h4 {
 }
 
 .wrap {
-  /*  display: flex; */
-    min-height: 100vh;
-    flex-direction: column;
     padding: 0;
     margin: 0;
 }
@@ -34,7 +39,6 @@ h4 {
 
 .page {
     background-color: white;
-    flex: 1 0 auto;
 }
 
 .wrap > .container {
@@ -42,10 +46,12 @@ h4 {
 }
 
 .footer {
+    width: 100%;
+    height: @footer-height;
+    Position: absolute;
+    bottom: 0;
     background-color: #f5f5f5;
     border-top: 1px solid #ddd;
-    flex: 0 0 auto;
-    margin-top: 25px;
     padding: 15px 0px 5px 0px;
 }
 
@@ -103,20 +109,25 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
-.navbar-default .navbar-collapse {
-    border-bottom: 1px solid @menu-color;
-}
+.navbar-default {
+    background: none;
+    border: none;
 
-.navbar-default .navbar-nav {
-    width: 100%;
+    .navbar-collapse {
+        border-bottom: 1px solid @menu-color;
+    }
 
-    > li > a {
-        color: #212121;
-        text-transform: uppercase;
-        font-weight: bold;
+    .navbar-nav {
+        width: 100%;
 
-        &:hover{
-            background-color: @menu-color;
+        > li > a {
+            color: #212121;
+            text-transform: uppercase;
+            font-weight: bold;
+
+            &:hover{
+                background-color: @menu-color;
+            }
         }
     }
 }
@@ -164,6 +175,10 @@ div.contact {
     
         a {
             margin-top: 20px;
+
+            span {
+                padding-right: 5px;
+            }
         }
     }
 }
@@ -213,19 +228,6 @@ span.created_at {
     }
 }
 
-.address {
-    font-weight: bold;
-    font-size: 1.7rem;
-}
-
-.row.block-item {
-    padding: 10px 5px;
-
-    &:hover {
-        box-shadow: 0px 0px 5px #d0d0d0;
-    }
-}
-
 .realty-type {
     padding: 5px 0px 15px 0px;
 
@@ -255,5 +257,24 @@ span.created_at {
 
     span {
         margin-right: 10px;
+    }
+}
+
+.block-item {
+    padding: 10px 5px;
+
+    &:hover {
+        box-shadow: 0px 0px 5px #d0d0d0;
+    }
+    .item-info {
+        margin: 0px 20px;
+
+        .address {
+            font-weight: bold;
+            font-size: 1.7rem;
+        }
+        p {
+            margin: 0 0 5px;
+        }
     }
 }

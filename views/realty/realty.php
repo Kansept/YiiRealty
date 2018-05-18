@@ -4,7 +4,7 @@ use app\modules\realty\models\RealtyImage;
 
 
 $this->params['breadcrumbs'][] = ['label' => 'База недвижимости', 'url' => ['realty/index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = $model->title;
 ?>
 <div class="row">
     <div class="col-md-12">

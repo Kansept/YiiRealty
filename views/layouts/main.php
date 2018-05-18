@@ -51,7 +51,8 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => 'ваш кейвор�
                                 <p class="desc">бесплатная консультация</p>
                             </div>
                             <div class="feedback hidden-xs">
-                                <a href="<?= Url::toRoute('site/contact') ?>" class="btn btn-warning">Напишите нам</a>
+                                <a href="<?= Url::toRoute('site/contact') ?>" class="btn btn-success">
+                                    <span class="glyphicon glyphicon-send"> </span> Напишите нам</a>
                             </div>
                         </div>
                     </div>
@@ -84,6 +85,7 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => 'ваш кейвор�
 
         </div> <!-- container -->
 
+    </div> <!-- wrap -->
     <footer class="footer">
         <div class="container">
             <div class="col-md-12">
@@ -92,7 +94,6 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => 'ваш кейвор�
         </div>
     </footer>
 
-    </div> <!-- wrap -->
 <?php $this->endBody() ?>
 </body>
 
