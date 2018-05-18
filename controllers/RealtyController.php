@@ -23,8 +23,35 @@ class RealtyController extends Controller
 
         $query = Realty::find()->orderBy($sort);
 
+        // Search
+        $post = Yii::$app->request->post();
+        if (Yii::$app->request->getIsPost()) {
+            if ( !empty($post['realty_transaction']) ) {
+                $query = $query->andWhere(['=', 'realty_transaction_id', $post['realty_transaction']]);
+            }
+            if ( !empty($post['realty_type']) ) {
+                $query = $query->andWhere(['=', 'realty_type_id', $post['realty_type']]);
+                $type = $post['realty_type'];
+            }
+            if ( !empty($post['price_from']) ) {
+                $query = $query->andWhere(['>', 'price', $post['price_from']]);
+            }  
+            if ( !empty($post['price_to']) ) {
+                $query = $query->andWhere(['<', 'price', $post['price_to']]);
+            }  
+            if ( !empty($post['room']) ) {
+                $query = $query->andWhere([($post['room'] <= 4)? '=' : '>', 'room', $post['room']]);
+            }
+            if ( !empty($post['full_area_from']) ) {
+                $query = $query->andWhere(['>', 'full_area', $post['full_area_from']]);
+            }  
+            if ( !empty($post['full_area_to']) ) {
+                $query = $query->andWhere(['<', 'full_area', $post['full_area_to']]);
+            }  
+        }
+
         if(!empty($type)) {
-            $query = $query->where(['realty_type_id' => $type]);
+            $query = $query->andWhere(['realty_type_id' => $type]);
         }
 
         $countQuery = clone $query;
@@ -40,7 +67,6 @@ class RealtyController extends Controller
 
         $this->view->title = "База недвижимости";        
 
-
         $types = Yii::$app->db->createCommand('
             SELECT t.id, t.name, COUNT(*) count 
             FROM realty r
@@ -53,6 +79,7 @@ class RealtyController extends Controller
              'types' => $types,
              'models' => $models,
              'pages' => $pages,
+             'post' => $post,
         ]);
     }
 
