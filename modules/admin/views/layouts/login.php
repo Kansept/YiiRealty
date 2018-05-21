@@ -1,31 +1,43 @@
+
 <?php
-//use backend\assets\AppAsset;
+
+/**
+ * @var string $content
+ * @var \yii\web\View $this
+ */
+
 use yii\helpers\Html;
-use app\assets\AppAsset;
 
-/* @var $this \yii\web\View */
-/* @var $content string */
+app\assets\AdminAsset::register($this);
+$bundle = yiister\gentelella\assets\Asset::register($this);
 
-dmstr\web\AdminLteAsset::register($this);
-//AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
-<head>
+<html lang="en">
+  <head>
     <meta charset="<?= Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-</head>
-<body class="login-page">
+  </head>
 
-<?php $this->beginBody() ?>
+  <body class="login">
+    <div>
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
 
-    <?= $content ?>
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+            <?= $content ?>
+          </section>
+        </div>
 
-<?php $this->endBody() ?>
-</body>
+      </div>
+    </div>
+    <?php $this->endBody() ?>
+  </body>
 </html>
 <?php $this->endPage() ?>

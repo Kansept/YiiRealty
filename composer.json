@@ -18,7 +18,6 @@
         "yiisoft/yii2": "~2.0.5",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
-        "dmstr/yii2-adminlte-asset": "2.*",
         "mdmsoft/yii2-admin": "~2.0",
         "yiister/yii2-gentelella": "~1.0",
         "wadeshuler/yii2-ckeditor-cdn": "~1.0",

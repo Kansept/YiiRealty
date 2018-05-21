@@ -22,9 +22,9 @@ $fieldOptions2 = [
 <div class="login-box">
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Вход в административную часть Логин и пароль admin</p>
 
         <?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => false]); ?>
+        <h1>Вход</h1>
 
         <?= $form
             ->field($model, 'username', $fieldOptions1)
@@ -42,13 +42,19 @@ $fieldOptions2 = [
             </div>
             <!-- /.col -->
             <div class="col-xs-4">
-                <?= Html::submitButton('Sign in', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'login-button']) ?>
+                <?= Html::submitButton('Войти', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'login-button']) ?>
             </div>
             <!-- /.col -->
         </div>
 
         <?php ActiveForm::end(); ?>
 
+        <div class="clearfix"></div>
+
+        <div class="separator">
+
+        <div class="clearfix"></div>
+        <br />
     </div>
     <!-- /.login-box-body -->
 </div><!-- /.login-box -->
