@@ -67,22 +67,13 @@ class RealtyController extends Controller
 
         $this->view->title = "База недвижимости";        
 
-        $types = Yii::$app->db->createCommand('
-            SELECT t.id, t.name, COUNT(*) count 
-            FROM realty r
-            INNER JOIN realty_type t ON t.id = r.realty_type_id
-            GROUP BY t.id, t.name
-            ORDER BY t.id
-        ')->queryAll();
-
         return $this->render('index', [
-             'types' => $types,
+             'types' => Realty::getCountByType(),
              'models' => $models,
              'pages' => $pages,
              'post' => $post,
         ]);
     }
-
 
     public function actionItem($id)
     {

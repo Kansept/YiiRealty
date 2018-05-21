@@ -223,4 +223,21 @@ class Realty extends \yii\db\ActiveRecord
             return false;
         }
     }
+
+    /**
+     * Count of ads for each type.
+     * @return array with keys: (int) id, (string) name, (int) count
+     */
+    public static function getCountByType() 
+    {
+        $types = \Yii::$app->db->createCommand('
+            SELECT t.id, t.name, COUNT(*) count 
+            FROM realty r
+            INNER JOIN realty_type t ON t.id = r.realty_type_id
+            GROUP BY t.id, t.name
+            ORDER BY t.id
+        ')->queryAll();
+
+        return $types;
+    }
 }
