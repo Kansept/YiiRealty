@@ -18,8 +18,23 @@ class RealtyController extends Controller
      */
     public function actionIndex()
     {
-        $sort = Yii::$app->request->get('sort', 'created_at');
+        $sort = Yii::$app->request->get('sort', 'created');
         $type = Yii::$app->request->get('type');
+
+        switch ($sort) {
+            case 'low_price':
+                $sort = 'price ASC';
+                break;
+            case 'high_price':
+                $sort = 'price DESC';
+                break;
+            case 'created':
+                $sort = 'created_at DESC';
+                break;
+            default:
+                $sort = 'created_at DESC';
+                break;
+        }
 
         $query = Realty::find()->orderBy($sort);
 

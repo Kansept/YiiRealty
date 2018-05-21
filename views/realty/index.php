@@ -106,9 +106,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <div class="order">
                 Сортировать по:
-                <span><?= Html::a('Дешевле', ['realty/index', 'type' => $realty_type, 'sort' => 'price asc']) ?></span>
-                <span><?= Html::a('Дороже', ['realty/index', 'type' => $realty_type, 'sort' => 'price desc']) ?></span>
-                <span><?= Html::a('Дата', ['realty/index', 'type' => $realty_type, 'sort' => 'created_at']) ?></span>
+                <span><?= Html::a('Дешевле', ['realty/index', 'type' => $realty_type, 'sort' => 'low_price']) ?></span>
+                <span><?= Html::a('Дороже', ['realty/index', 'type' => $realty_type, 'sort' => 'high_price']) ?></span>
+                <span><?= Html::a('Дата', ['realty/index', 'type' => $realty_type, 'sort' => 'created']) ?></span>
             </div>
                     
             <?php foreach ($models as $house) : ?>
