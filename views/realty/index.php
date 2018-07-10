@@ -5,6 +5,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
 use app\modules\realty\models\RealtyImage;
+use app\components\RealtorWidget;
 
 /* @var $this yii\web\View */
 
@@ -17,8 +18,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-md-9 col-xs-12">
 
             <div class="panel panel-default">
-                <div class="panel-body">
-                    <?= Html::beginForm(['realty/index'], 'post', ['enctype' => 'multipart/form-data', 'class' => 'form-horizontal']) ?>
+                <div class="panel-heading" id="filter-head"><span class="glyphicon glyphicon-filter"></span> Фильтр</div>
+                <div class="panel-body" id="filter-body">
+                    <?= Html::beginForm(['realty/index'], 'post', ['enctype' => 'multipart/form-data', 'class' => 'form-horizontal form-search']) ?>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <?= Html::label('Тип сделки', 'realty_transaction', ['class' => 'control-label col-md-4']) ?>
@@ -41,12 +43,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
                             </div>
                             <div class="form-group">
-                                <?= Html::label('Цена', 'price_from', ['class' => 'control-label col-md-4']) ?>
-                                <div class="col-md-4">
+                                <?= Html::label('Цена', 'price_from', ['class' => 'control-label col-md-4 col-xs-12']) ?>
+                                <div class="col-md-4 col-xs-6">
                                     <?= Html::input('text', 'price_from', ArrayHelper::getValue($post, 'price_from'), 
                                         ['class' => 'form-control', 'placeholder' => 'от']) ?>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-xs-6">
                                     <?= Html::input('text', 'price_to', ArrayHelper::getValue($post, 'price_to'),
                                         ['class' => 'form-control', 'placeholder' => 'до']) ?>
                                 </div>
@@ -64,12 +66,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
                             </div>
                             <div class="form-group">
-                                <?= Html::label('Общая площадь', 'full_area_from', ['class' => 'control-label col-md-4']) ?>
-                                <div class="col-md-4">
+                                <?= Html::label('Общая площадь', 'full_area_from', ['class' => 'control-label col-md-4 col-xs-12']) ?>
+                                <div class="col-md-4 col-xs-6">
                                     <?= Html::input('text', 'full_area_from', ArrayHelper::getValue($post, 'full_area_from'),
                                         ['class' => 'form-control', 'placeholder' => 'от']) ?>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-xs-6">
                                     <?= Html::input('text', 'full_area_to', ArrayHelper::getValue($post, 'full_area_to'),
                                         ['class' => 'form-control', 'placeholder' => 'до']) ?>
                                 </div>
@@ -85,7 +87,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </div>
             
-        </div> <!-- col-md-4 -->
+        </div> <!-- col-md-9 col-xs-12 -->
+
         <div class="col-md-9 col-xs-12">
 
             <div class="realty-type">
@@ -95,7 +98,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         $type['name'] . '('.$type['count'].')', 
                         Url::to(['realty/index', 'type' => $type['id']]),
                         ['class' => ($realty_type == $type['id'])? 'text_active' : 'text_type' ] 
-                    ) ?> 
+                    ) ?>
 
                     <?php if ($realty_type == $type['id']) { 
                         echo Html::a( '<sup>x</sup>', Url::to(['realty/index']), ['class' => 'reset' ] );
@@ -133,7 +136,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     </p> <span class="createdat"><?= Yii::$app->formatter->asDatetime($house['created_at'], 'dd.MM.Y'); ?></span></p>
                 </div>
             </div>
-
             <?php endforeach ?>
 
             <?php if (empty($models)) { ?>
@@ -150,6 +152,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 к нашим специалистам.</p>
         </div> <!-- col-md-9 -->
 
-
     </div> <!-- row -->
 </div> <!-- realty-index -->
+
+<?php
+$script = <<< JS
+  $('#filter-head').on('click',function(){
+    if ( $('#filter-body').is(':visible') ) {
+      $('#filter-body').slideUp("slow");
+    } else {
+      $('#filter-body').slideDown("slow");
+    }
+  });
+JS;
+//маркер конца строки, обязательно сразу, без пробелов и табуляции
+$this->registerJs($script, yii\web\View::POS_READY);
+?>

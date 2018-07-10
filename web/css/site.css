@@ -221,3 +221,14 @@ span.created_at {
 .block-item .item-info p {
   margin: 0 0 5px;
 }
+@media (max-width: 767px) {
+  #filter-body {
+    display: none;
+  }
+}
+@media (max-width: 992px) {
+  form.form-search .control-label {
+    display: block;
+    text-align: left;
+  }
+}
