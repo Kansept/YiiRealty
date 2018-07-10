@@ -1,7 +1,8 @@
 <?php
 
 return [              
-   'adminEmail' => 'admin@example.com',
-   'supportEmail' => 'support@example.com',
+   'adminEmail' => 'kansept@yandex.ru',
+   'supportEmail' => 'kansept@yandex.ru',
    'user.passwordResetTokenExpire' => 3600,
+   'siteName' => 'Центр недвижимости PLATINUM', 
 ];

@@ -100,7 +100,7 @@ class RealtyController extends Controller
 
         $this->view->registerCssFile('css/jcarousel.connected-carousels.css');
 
-        $this->view->title = $model->street;
+        $this->view->title = $model->title;
         return $this->render('realty', [
             'id' => $id,
             'model' => $model, 

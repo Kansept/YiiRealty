@@ -3,7 +3,6 @@
 use yii\bootstrap\Carousel;
 /* @var $this yii\web\View */
 
-$this->title = 'Центр недвижимости PLATUNUM';
 ?>
 <div class="site-index">
 
