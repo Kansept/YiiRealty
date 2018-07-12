@@ -18,7 +18,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-md-9 col-xs-12">
 
             <div class="panel panel-default">
-                <div class="panel-heading" id="filter-head"><span class="glyphicon glyphicon-filter"></span> Фильтр</div>
+                <div class="panel-heading panel-filter">
+                    <div class="panel-filter__show" id="filter-head"><span class="glyphicon glyphicon-filter"></span> Фильтр </div> 
+                    <div class="pull-right visible-xs"><?= !empty($post)? Html::a('(Сбросить)', ['realty/index'], ['class' => 'pu1ll-right']) : '' ?></div>
+                </div>
                 <div class="panel-body" id="filter-body">
                     <?= Html::beginForm(['realty/index'], 'post', ['enctype' => 'multipart/form-data', 'class' => 'form-horizontal form-search']) ?>
                         <div class="col-md-6">

@@ -39,12 +39,12 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => 'ваш кейвор�
 
             <div class="row">
                 <div class="header">
-                    <div class="col-md-5">
+                    <div class="col-md-5 col-sm-5 logo hidden-xs">
                         <img src="/images/logo.png" alt="Центр недвижимости PLATINUM">
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-7 col-sm-7">
                         <div class="contact">
-                            <div class="worktime hidden-xs">
+                            <div class="worktime hidden-sm">
                                 <p>пн-пт: 10:00 - 18:00</p>
                                 <p>сб: 10:00 - 16:00</p>
                             </div>
@@ -64,7 +64,7 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => 'ваш кейвор�
             <div class="row">
                 <?php
                 NavBar::begin([
-                    'brandLabel' => '<div class="hidden-sm hidden-md hidden-lg">Меню</div>',
+                    'brandLabel' => '<span class="visible-xs">Центр недвижимости PLATINUM</span>',
                     'brandUrl' => Yii::$app->homeUrl,
                     'options' => [
                         'class' =>'navbar navbar-default',
@@ -76,11 +76,11 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => 'ваш кейвор�
                 ]);
                 NavBar::end();
                 ?>
-            </div>
 
             <div class="content">
                 <?= Breadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                    'options' => ['class' => 'breadcrumb hidden-xs']
                 ]) ?>
                 <?= $content ?>
             </div>
